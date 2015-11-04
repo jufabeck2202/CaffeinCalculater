@@ -1,32 +1,33 @@
 <ion-view view-title="Playlists">
-  <ion-content>
-   <label class="item item-input item-select">
-    <div class="input-label">
-     Select Drink
-    </div>
-    <select>
-      <option>Blue</option>
-      <option selected>brewed Coffee</option>
-      <option>Red</option>
-    </select>
-  </label>
+<ion-content>
+<label class="item item-input item-select">
+  <div class="input-label">
+   Select Drink
+ </div>
+ <select ng-model="selectedCoffee">
+  <option ng-repeat="coffee in coffees"> {{coffee.name}}</option>
+</select>
+</label>
 
-  
-   <label class="item item-radio">
-    <input type="radio" name="group">
-    <div class="item-content">
-      fluid ounce (oz)
-    </div>
-    <i class="radio-icon ion-checkmark"></i>
-  </label>
+<div ng-init="formData.currency=1" >
+  <ion-radio name="currency" value="0" ng-model="formData.currency">
+  fluid ounce (oz)
+  </ion-radio>
+  <ion-radio name="currency" value="1" ng-model="formData.currency">
+  milliliters (ml)
+  </ion-radio>
+</div>
 
-   <label class="item item-radio">
-    <input type="radio" name="group">
-    <div class="item-content">
-    	milliliters (ml)
-    </div>
-    <i class="radio-icon ion-checkmark"></i>
-  </label>
 
-  </ion-content>
+<label class="item item-input" ng-init="selectedCups=1">
+count of cups:
+  <input type="text" placeholder="count of cups" ng-model="selectedCups">
+
+</label>
+
+<button class="button button-full button-positive" ng-click="calculate()">
+ calculate
+</button>
+
+</ion-content>
 </ion-view>
