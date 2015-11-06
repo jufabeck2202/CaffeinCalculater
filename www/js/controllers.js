@@ -43,13 +43,27 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope, CoffeeService) {
   $scope.coffees=CoffeeService.all();
- 
+  var coffeeId=0;
+  
+  //get triggered when you hit the calculate button
   $scope.calculate =function calculate(){
    console.log(this.selectedCoffee);//der ausgewählte Kaffe
    console.log(this.formData.currency); //die währung 0=oz 1 =  ml:
    console.log(this.selectedCups);//selected cubs
-
+   
+   var selCoffee=String(this.selectedCoffee);
+   
+   for (var i = 0; i < $scope.coffees.length; i++) {
+    var currentCoffe=String($scope.coffees[i].name);
+    if(currentCoffe.trim()==selCoffee.trim()){
+      console.log(i);
+      coffeeId=i;
+    }
   };
+};//end of Calculate
+  
+
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
