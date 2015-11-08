@@ -12,24 +12,44 @@
 <div ng-init="formData.currency=1" >
   <ion-radio name="currency" value="0" ng-model="formData.currency">
   fluid ounce (oz)
-  </ion-radio>
-  <ion-radio name="currency" value="1" ng-model="formData.currency">
-  milliliters (ml)
-  </ion-radio>
+</ion-radio>
+<ion-radio name="currency" value="1" ng-model="formData.currency">
+milliliters (ml)
+</ion-radio>
 </div>
 
 
 
 <label class="item item-input" ng-init="selectedCups=1">
-count of cups:
+  count of cups:
   <input type="text" placeholder="count of cups" ng-model="selectedCups">
 
 </label>
 
-<button class="button button-full button-positive" ng-click="calculate()">
+<button class="button button-full button-dark" ng-click="calculate()">
  calculate
 </button>
 
+<div ng-show="showCalculation">  
+<ion-item>
+
+
+  <div class ="row">
+    <div class="col"><p id="coffee">{{selectedCoffee}}:</p></div>
+    <div class="col"> 
+      <p id="cups">
+        {{cups}} cups
+      </p><br>
+      <p id="size">
+        (cup size = {{coffeeSize}}{{currency}})
+      </p><br>
+      <p id="cmg">
+        total of {{coffeeMg}}mg of caffein
+      </p><br>
+    </div>
+  </div>
+</ion-item>
+</div>
 
 </ion-content>
 </ion-view>

@@ -43,25 +43,42 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope, CoffeeService) {
   $scope.coffees=CoffeeService.all();
+  $scope.coffeeMg=1;
+  $scope.coffeeSize=0;
+  $scope.currency="";
+  $scope.cups=1;
+  $scope.showCalculation = false;
   var coffeeId=0;
+
   
   //get triggered when you hit the calculate button
   $scope.calculate =function calculate(){
-   console.log(this.selectedCoffee);//der ausgewählte Kaffe
-   console.log(this.formData.currency); //die währung 0=oz 1 =  ml:
-   console.log(this.selectedCups);//selected cubs
-   
-   var selCoffee=String(this.selectedCoffee);
-   
-   for (var i = 0; i < $scope.coffees.length; i++) {
-    var currentCoffe=String($scope.coffees[i].name);
-    if(currentCoffe.trim()==selCoffee.trim()){
-      console.log(i);
-      coffeeId=i;
+    $scope.cups=this.selectedCups;   
+    var selCoffee=String(this.selectedCoffee);
+    if(this.selectedCoffee!=null){
+      $scope.showCalculation=true;
     }
-  };
-};//end of Calculate
-  
+
+    for (var i = 0; i < $scope.coffees.length; i++) {
+      var currentCoffe=String($scope.coffees[i].name);
+      if(currentCoffe.trim()==selCoffee.trim()){
+        coffeeId=i;
+        break;
+      }
+    };
+    if(this.formData.currency==0){
+      $scope.coffeeMg=$scope.coffees[coffeeId].oz.caffein*this.selectedCups;
+      $scope.coffeeSize=$scope.coffees[coffeeId].oz.size;
+      $scope.currency="oz";
+
+    }else if (this.formData.currency==1){
+      $scope.coffeeMg=$scope.coffees[coffeeId].ml.caffein*this.selectedCups;
+      $scope.coffeeSize=$scope.coffees[coffeeId].ml.size;
+      $scope.currency="ml";
+
+    }
+  };//end of Calculate
+
 
 
 })
