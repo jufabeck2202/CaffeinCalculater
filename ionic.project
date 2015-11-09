@@ -1,4 +1,12 @@
 {
   "name": "CoffeinTracker",
-  "app_id": "33944eec"
+  "app_id": "33944eec",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
 }

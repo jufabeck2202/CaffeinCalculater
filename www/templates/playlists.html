@@ -1,40 +1,37 @@
-<ion-view view-title="Playlists">
+<ion-view view-title="Caffein Calculator">
 <ion-content>
 <label class="item item-input item-select">
   <div class="input-label">
    Select Drink
  </div>
- <select ng-model="selectedCoffee">
+ <select ng-model="selectedCoffee" ng-change="calculate()">
   <option ng-repeat="coffee in coffees"> {{coffee.name}}</option>
 </select>
 </label>
 
-<div ng-init="formData.currency=1" >
-  <ion-radio name="currency" value="0" ng-model="formData.currency">
+<div ng-init="formData.currency=1">
+  <ion-radio name="currency" value="0" ng-change="calculate()" ng-model="formData.currency">
   fluid ounce (oz)
 </ion-radio>
-<ion-radio name="currency" value="1" ng-model="formData.currency">
+<ion-radio name="currency" value="1" ng-change="calculate()" ng-model="formData.currency">
 milliliters (ml)
 </ion-radio>
 </div>
 
 
 
-<label class="item item-input" ng-init="selectedCups=1">
+<label class="item item-input" ng-init="selectedCups=1" >
   count of cups:
-  <input type="text" placeholder="count of cups" ng-model="selectedCups">
+  <input type="text" placeholder="count of cups" ng-change="calculate()" ng-model="selectedCups">
 
 </label>
 
-<button class="button button-full button-dark" ng-click="calculate()">
- calculate
-</button>
 
-<div ng-show="showCalculation">  
-<ion-item>
+<div  ng-show="showCalculation">  
+<ion-item class="animated fadeInUp"> 
 
 
-  <div class ="row">
+  <div class ="row responsive-sm">
     <div class="col"><p id="coffee">{{selectedCoffee}}:</p></div>
     <div class="col"> 
       <p id="cups">
