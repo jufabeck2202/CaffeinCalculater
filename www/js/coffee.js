@@ -4,9 +4,9 @@ angular.module('starter.services', [])
 	var coffees=[{
 		id:0,
 		name:"brewed Coffee",
-		caffein:125,
-		ml:{size:250,caffein:172.2},
-		oz:{size:8,caffein:163}
+		standard:5,
+		ml:{caffein:35.2},//per 50ml
+		oz:{size:8,caffein:163}//per 15oz
 	},
 	{	
 		id:1,
