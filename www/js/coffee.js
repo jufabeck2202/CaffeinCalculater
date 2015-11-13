@@ -6,7 +6,7 @@ angular.module('starter.services', [])
 		name:"brewed Coffee",
 		standard:5,
 		ml:{caffein:35.2},//per 50ml
-		oz:{size:8,caffein:163}//per 15oz
+		oz:{caffein:20.4}//per 1oz
 	},
 	{	
 		id:1,

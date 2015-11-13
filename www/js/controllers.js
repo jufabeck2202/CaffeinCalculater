@@ -75,7 +75,10 @@ angular.module('starter.controllers', [])
     $scope.cups=this.selectedCups;   
      
      if(this.formData.currency==0){
-
+      $scope.cupSize=this.cubRange.value*stepOz;
+      $scope.currency=" fl. oz";
+      $scope.coffeeMg=$scope.coffees[coffeeId].oz.caffein*this.cubRange.value*this.selectedCups;
+      $scope.mgpercub=$scope.coffees[coffeeId].oz.caffein*this.cubRange.value
      }else if (this.formData.currency==1) {
       $scope.cupSize=this.cubRange.value*stepML;
       $scope.currency="ml";
