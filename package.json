@@ -23,5 +23,7 @@
     "ionic-plugin-keyboard",
     "org.apache.cordova.vibration"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }
